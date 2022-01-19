@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AP.Views.SongPage" Title="Информация об аудиофайле">
+    <ContentPage.Content>
+
+        <StackLayout>
+            <StackLayout x:Name="friendStack">
+                <Label Text="Название" />
+                <Entry Text="{Binding Name}" FontSize="Medium" />
+                <Label Text="Исполнитель" />
+                <Entry Text="{Binding Author}" FontSize="Medium" />
+                <Label Text="Альбом" />
+                <Entry Text="{Binding Album}" FontSize="Medium" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Button Text="Добавить" Command="{Binding ListViewModel.SaveSongCommand}" CommandParameter="{Binding}" />
+                <Button Text="Удалить" Command="{Binding ListViewModel.DeleteSongCommand}" CommandParameter="{Binding}" />
+                <Button Text="Назад" Command="{Binding Path=ListViewModel.BackCommand}" />
+            </StackLayout>
+        </StackLayout>
+
+
+    </ContentPage.Content>
+</ContentPage>

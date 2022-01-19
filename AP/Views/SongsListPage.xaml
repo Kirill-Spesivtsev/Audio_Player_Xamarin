@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AP.Views.SongsListPage" Title="Музыка"
+            BackgroundColor="#ffffff">
+
+    
+             
+    <ContentPage.Content>
+
+        <StackLayout BackgroundColor="#F5F1F8">
+
+            <Frame BackgroundColor="LightGray" IsClippedToBounds="True" CornerRadius="32" Margin="4">
+                <Frame BorderColor="White" IsClippedToBounds="True" CornerRadius="30" Margin="-19">
+                    <ListView x:Name="SongsList" ItemsSource="{Binding Songs}" Margin="-20"
+                    SelectedItem="{Binding SelectedSong, Mode=TwoWay}" HasUnevenRows="True">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.View>
+
+                                        <StackLayout Spacing="0" Padding="0" HorizontalOptions="Fill" >
+
+                                            <StackLayout BackgroundColor="#ffffff" Spacing="20" Padding="0, 0, 0, 0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Horizontal" >
+
+                                                <!--<BoxView  BackgroundColor="#F57B42" WidthRequest="10" HeightRequest="50"/>-->
+
+                                                <Image Source="LittleAlbumImage.png" x:Name="IconAlbumImage"  HeightRequest="60" WidthRequest="60" Margin="10,5,10,5" HorizontalOptions="Center" VerticalOptions="Center" />
+
+                                                <!--<Label Text="{Binding Icon}" FontSize="30"  TextColor="{ Binding BackgroundColor }" HorizontalOptions="Start" WidthRequest="30" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>-->
+                                                <StackLayout Orientation="Vertical">
+                                                    <Label Text="{ Binding Name }" TextColor="Black" HorizontalOptions="Start" VerticalOptions="Start" Margin="0,5,0,0" LineBreakMode="TailTruncation" FontSize="Medium" WidthRequest="1000"/>
+                                                    <Label Text="{ Binding Author }" HorizontalOptions="Start" VerticalOptions="End" Margin="0,0,0,5" LineBreakMode="TailTruncation" WidthRequest="1000"/>
+                                                </StackLayout>
+                                                
+                                                
+                                            </StackLayout>
+
+                                            <!-- Bottom Line -->
+                                            <StackLayout BackgroundColor="LightGray" HeightRequest="1" VerticalOptions="End"/>
+                                        </StackLayout>
+
+
+
+                                    </ViewCell.View>
+                                </ViewCell>
+
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Frame>
+            </Frame>
+            <Button Text="Добавить" BackgroundColor="White" BorderColor="Black" Command="{Binding CreateSongCommand}" Margin="20,10,20,10" CornerRadius="10" BorderWidth="2"/>
+            <Image x:Name="im1" Source=""/>
+        </StackLayout>
+
+
+    </ContentPage.Content>
+</ContentPage>
